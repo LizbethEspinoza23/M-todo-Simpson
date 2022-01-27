@@ -1,0 +1,20 @@
+function [integ,v_real,e_t]=simpson_3_8(f,a,b,n)
+h=(b-a)/n;
+for k=1:1:n
+  x(k)=a+k*h;
+  y(k)=f(x(k));
+end
+so=0;
+sm3=0;
+for k=2:1:n-1
+    if rem(k,3)==0
+       sm3=sm3+y(k); 
+     else
+     so=so+y(k);
+    end
+end
+integ=(3*h/8)*(f(a)+f(b)+3*so+2*sm3);
+
+v_real=integral(f,a,b);
+e_t=abs(v_real-integ)/v_real*100;
+end
