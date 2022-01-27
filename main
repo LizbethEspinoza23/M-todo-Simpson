@@ -1,0 +1,43 @@
+clc
+fprintf("metodo de simpson 1/3 y simpson 3/8 para la resolucion de integrales. \n")
+%ejemplo 1
+fprintf("ejemplo 1 \n")
+f= @(x) x^2;
+ls=1;
+li=0;
+max=20;
+try
+fprintf("Simpson 1/3   ")
+[s]=simpson1_3(f,ls,li,max)
+fprintf("Simpson 3/8   ")
+[s]=simpson3_8(f,ls,li,max)
+catch e
+fprintf("Error: %s\n",e.message)
+end
+%subplot(2,2,1);title('Metodo de simpson Ejemplo 1');
+%hold on; x1 = linspace(li,ls,max); y1 = subs(f,x1); bar(x1,y1)
+%xlabel('Eje x'); ylabel('Eje y');
+%plot(x1,y1,'red','LineWidth',3);grid on; 
+
+
+
+%ejemplo 2
+fprintf("\n")
+fprintf("ejemplo 2 \n")
+f=@(x) ((x-1).*x./2).*((x-1).*x./2);
+ls=1;
+li=-1;
+max=20;
+try
+fprintf("Simpson 1/3   ")
+[s]=simpson1_3(f,ls,li,max)
+fprintf("Simpson 3/8   ")
+[s]=simpson3_8(f,ls,li,max)
+catch e
+fprintf("Error: %s\n",e.message)
+end
+%subplot(2,2,2);title('Metodo de simpson Ejemplo 2');
+%hold on; x1 = linspace(li,ls,max); y1 = subs(f,x1); bar(x1,y1)
+%xlabel('Eje x'); ylabel('Eje y');
+%plot(x1,y1,'red','LineWidth',3);grid on; 
+
